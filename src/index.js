@@ -20,11 +20,11 @@ function addCheckBoxListener(checkbox) {
 
 function populateList(emptyList) {
   emptyList.sortTasks();
-  for (let i = 0; i < emptyList.taskList.length; i += 1) {
-    const temp = createTaskDOM(emptyList.taskList[i].description);
+  emptyList.taskList.forEach((el) => {
+    const temp = createTaskDOM(el.description);
     taskList.appendChild(temp);
     addCheckBoxListener(temp.children[0]);
-  }
+  });
 }
 
 populateList(toDoList);
